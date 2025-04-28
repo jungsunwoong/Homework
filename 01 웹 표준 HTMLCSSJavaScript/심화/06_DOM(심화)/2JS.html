@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2JS</title>
+    <script>
+      //이벤트 함수 호출
+      window.onload = function () {
+        // 버튼 이벤트 함수 생성 (클릭시)
+        document.getElementById('btn').addEventListener('click', function () {
+          let result = [];
+          let foods = document.getElementsByName('food');
+          for (let i = 0; i < foods.length; i++) {
+            let food = foods.item(i);
+            if (food.checked) {
+              result.push(food.value);
+            }
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <form>
+      <div>
+        좋아하는 음식은?
+        <label><input type="checkbox" name="food" value="라면" /> 라면</label>
+        <label><input type="checkbox" name="food" value="만두" /> 만두</label>
+        <label
+          ><input type="checkbox" name="food" value="불고기" /> 불고기</label
+        >
+        <input
+          id="btn"
+          type="button"
+          value="전송"
+          onclick="getCheckboxValue()"
+        />
+      </div>
+    </form>
+  </body>
+</html>
+<!-- 체크박스 안의 값을 출력해야 하기에
+ 1. 타입 체크박스 태그를 변수에 할당한다
+ 2. 클릭했을 때 이벤트 함수를 실행시킨다
+ 3. 변수가 가지는 value 값을 추출해서 콘솔에 출력시킨다 -->

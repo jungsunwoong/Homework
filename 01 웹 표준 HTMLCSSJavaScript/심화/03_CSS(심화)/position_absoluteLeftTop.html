@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position_absoluteLeftTop.html</title>
+    <style>
+      div.box:nth-child(1) {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 10;
+        left: 10px;
+      }
+      div.box:nth-child(2) {
+        background-color: green;
+        width: 100px;
+        height: 100px;
+        left: 40px;
+        position: relative;
+        top: 40px;
+        z-index: 100;
+      }
+      div.box:nth-child(3) {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+        left: 80px;
+        position: relative;
+        bottom: 20px;
+        z-index: 150;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

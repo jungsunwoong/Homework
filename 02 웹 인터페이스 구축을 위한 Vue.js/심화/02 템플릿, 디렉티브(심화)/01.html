@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01.html</title>
+    <style>
+      .table {
+        text-align: center;
+        width: 500px;
+        border-collapse: collapse;
+      }
+      .table * {
+        border: 1px solid black;
+        margin: 0;
+        padding: 0;
+      }
+      .head {
+        background-color: purple;
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table class="table">
+        <tr class="head">
+          <th>번호</th>
+          <th>이름</th>
+          <th>전화번호</th>
+        </tr>
+        <tr class="data">
+          <td>1011</td>
+          <td>RM</td>
+          <td>010-3456-8299</td>
+        </tr>
+        <tr class="data">
+          <td>1012</td>
+          <td>정국</td>
+          <td>010-3456-8298</td>
+        </tr>
+        <tr class="data">
+          <td>1013</td>
+          <td>제이홉</td>
+          <td>010-3456-8297</td>
+        </tr>
+        <tr class="data">
+          <td>1014</td>
+          <td>슈가</td>
+          <td>010-3456-8296</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      let vm = Vue.crateApp({
+        name: 'App',
+        data() {
+          return {
+            contacts: [],
+          };
+        },
+        methods: {},
+      }).mount('#app');
+    </script>
+  </body>
+</html>
