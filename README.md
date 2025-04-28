@@ -4,8 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/jungsunwoong/Homework?color=brightgreen)
 ![GitHub issues](https://img.shields.io/github/issues/jungsunwoong/Homework)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/jungsunwoong/Homework)
-![GitHub license](https://img.shields.io/github/license/jungsunwoong/Homework)
-![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY%2DNC%204.0-lightgrey)
+
 
 
 ## 📚 소개
