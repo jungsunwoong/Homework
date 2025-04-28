@@ -6,7 +6,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/jungsunwoong/Homework)
 ![GitHub license](https://img.shields.io/github/license/jungsunwoong/Homework)
 ![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY%2DNC%204.0-lightgrey)
----
+
 
 ## 📚 소개
 > 이 저장소는 매일 실습하고 성장하는 기록 공간입니다.  
