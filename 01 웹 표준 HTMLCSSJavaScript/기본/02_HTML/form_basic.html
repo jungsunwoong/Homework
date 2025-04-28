@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form_basic</title>
+  </head>
+  <body>
+    <h1>form_basic</h1>
+    <form action="">
+      <table>
+        <tr>
+          <label for="name">이름</label>
+          <input
+            type="text"
+            id="name"
+            name="username"
+            placeholder="이름을 입력하세요."
+          />
+        </tr>
+        <tr>
+          <td>
+            성별
+            <label for="gender">남자</label>
+            <input type="radio" name="gender" id="gender" value="m" />
+            <label for="gender">여자</label>
+            <input type="radio" id="gender" name="gender" value="w" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
