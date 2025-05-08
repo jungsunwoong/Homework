@@ -8,8 +8,19 @@ public class MethodReferenceExample {
         // 람다식
         // peroson.action((x,y)->Computer.staticMethod(x,y));
         // 메소드 참조
-        person.action(()->{
-
+        person.action((double x, double y)->{
+        double result = Computer.staticMethod(x,y);
+        return result;
         });
+        // 인스턴스 메소드일 경우
+        Computer com = new Computer();
+        //람다식
+        //person.action((x,y)->com.instanceMethod(x,y));
+        //메소드 참조
+        person.action((double x, double y) -> {
+          double result =  com.instanceMethod(x,y);
+          return result;
+        });
+
     }
 }
