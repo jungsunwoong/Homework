@@ -1,0 +1,13 @@
+sakila , world 테스트 데이터베이스 다운로드
+https://dev.mysql.com/doc/index-other.html
+
+employees.sql 파일 이용하여 테스트 데이터 구축하기
+git clone https://github.com/datacharmer/test_db.git
+
+cd test_db
+
+>mysql -u root -p
+비밀번호입력
+
+mysql>source employees.sql;
+mysql>show databases;
