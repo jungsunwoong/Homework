@@ -1,6 +1,7 @@
 package ch17.sec01;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -12,7 +13,11 @@ public class StreamExample {
         set.add("감자바");
 
         Stream <String> stream = set.stream();
-        stream.forEach(name -> System.out.println(name));
+//        stream.forEach(name -> System.out.println(name));
+        Iterator iterator = stream.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
 
 
     }
