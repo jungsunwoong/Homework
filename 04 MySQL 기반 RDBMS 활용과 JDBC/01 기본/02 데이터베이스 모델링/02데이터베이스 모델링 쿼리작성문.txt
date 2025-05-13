@@ -1,0 +1,38 @@
+1. 워크벤치 schemas 오른쪽 마우스 클릭 
+-> create schema or create Database 선택
+
+or create schema 'shopdb' 쿼리 작성
+
+2. tables 오른쪽 클릭 create tabel 선택
+
+3. membertbl , producttbl tablename 작성 후 apply
+데이터 형식 작성 , PK NN UQ 설정 체크
+
+4. select * from membertbl , select * from producttbl 작성 후 확인
+
+5. id : tester name : 테스터 address : 광진구 추가
+or 
+INSERT INTO 
+`shopdb`.`membertbl` (`memberID`, `memberName`, `memberAddress`) 
+VALUES ('tester', '테스터', '광진구');
+
+6. tester 선택 화살표 마우스 오른쪽 delete rows   
+DELETE FROM `shopdb`.`membertbl` WHERE (`memberID` = 'tester');
+
+7. -- producttbl 의 데이터를 출력하시오.
+select * from shopdb.producttbl;
+
+8. -- memberTBL의 데이터를 출력하세요. 
+select membername,memberaddress from membertbl;
+
+9. -- memberTBL의 데이터 중 이름이 '지운이'인 데이터만 출력하세요
+select * from membertbl where membername = '지운이'
+
+10.-- 앞에서 작성한 3개의 SQL 문을 한 번에 실행하세요.
+select * from shopdb.producttbl;
+select membername,memberaddress from membertbl;
+select * from membertbl where membername = '지운이'
+
+
+
+
