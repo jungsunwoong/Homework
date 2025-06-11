@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
-
-
 public class travelDaoImpl implements TravelDao {
     static Connection conn = JDBCUtil.getConnection();
     private TravelVO map(ResultSet rs) throws SQLException {
@@ -113,8 +110,7 @@ public class travelDaoImpl implements TravelDao {
         String sql = "select * from tbl_travel order by district, title limit ?,?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             int count = 10;
-            int start = (page
-                    - 1) * count;
+            int start = (page - 1) * count;
             pstmt.setInt(1, start);
             pstmt.setInt(2, count);
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -149,42 +145,37 @@ public class travelDaoImpl implements TravelDao {
 
     @Override
     public Optional<TravelVO> getTravel(Long no) {
-        return Optional.empty();
-    }
-}
-
-@Override
-public Optional<TravelVO> getTravel(Long no) {
-    TravelVO travel = null;
-    String sql = """
+        TravelVO travel = null;
+        String sql = """
 select t.*, ti.no as tino, ti.filename, ti.travel_no
 from tbl_travel t
 left outer join tbl_travel_image ti
 on t.no = ti.travel_no
 where t.no = ?;
 """;
-    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-        pstmt.setLong(1, no);
-        try (ResultSet rs = pstmt.executeQuery()) {
-            if (rs.next()) {
-                travel = map(rs);
-                List<TravelImageVO> images = new ArrayList<>();
-                try {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setLong(1, no);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    travel = map(rs);
+                    List<TravelImageVO> images = new ArrayList<>();
+                    // 이미지 데이터를 읽을 때, 해당 여행지에 이미지가 없는 경우를 고려
+                    // `LEFT OUTER JOIN` 때문에 `ti.filename`이 null일 수 있습니다.
                     do {
-                        TravelImageVO image = mapImage(rs);
-                        images.add(image);
+                        // ResultSet이 유효하고 filename이 null이 아닌 경우에만 image를 추가합니다.
+                        if (rs.getString("filename") != null) {
+                            TravelImageVO image = mapImage(rs);
+                            images.add(image);
+                        }
                     } while (rs.next());
-                } catch (SQLException e) {
-// 이미지가 없는 경우 발생
+                    travel.setImages(images);
+                    return Optional.of(travel);
+                } else {
+                    return Optional.empty();
                 }
-                travel.setImages(images);
-                return Optional.of(travel);
-            } else {
-                return Optional.empty();
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
     }
-}
 }
